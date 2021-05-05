@@ -1,0 +1,33 @@
+# Get all ToDos
+GET http://localhost:5000/todos
+###
+# Get Todos with specific key
+GET http://localhost:5000/todos/oO4zqN-JHExV
+###
+# Post new Todo
+POST http://localhost:5000/todos
+Content-Type: application/json
+
+{
+  "title": "Zimmer aufräumen",
+  "content": "Endlich die Socken aus der Ecke räumen!",
+  "column": "TODO",
+  "category": "Putzen"
+}
+
+###
+# Post todo to specific key
+POST http://localhost:5000/todos
+Content-Type: application/json
+
+{
+  "key": "FO4zqN-JHHEV",
+  "title": "Eier",
+  "content": "Für Omelette <3e",
+  "column": "TODO",
+  "category": "Einkauf"
+}
+
+###
+#
+DELETE http://localhost:5000/todos/2
