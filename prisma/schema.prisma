@@ -11,12 +11,12 @@ generator client {
 }
 
 model Todo {
-  id        Int       @default(autoincrement()) @id
-  key       String    @db.Char(12)
-  title     String    @db.VarChar(255)
-  content   String    @db.Text
-  category  String?
-  column    Column    @default(TODO)
+  id       Int     @id @default(autoincrement())
+  key      String  @db.Char(12)
+  title    String  @db.VarChar(255)
+  content  String  @db.Text
+  category String?
+  column   Column  @default(TODO)
 }
 
 enum Column {
