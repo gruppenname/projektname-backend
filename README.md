@@ -2,6 +2,8 @@
 
 Das Backend für Projektname, eine einfache ToDo-Anwendung, in der ToDo's nach einem Key gespeichert werden.
 
+# Verwenden
+Beispiele für die möglichen Routen sind in der `test.http` Datei angelegt.
 
 ## Entwickeln
 Für die lokale Entwicklung wird eine Postgres-Instanz benötigt. Dafür kann der Befehl `docker run --rm --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword --network=host -d postgres` verwendet werden.
