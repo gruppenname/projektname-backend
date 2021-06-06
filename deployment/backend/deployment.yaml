@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gruppenname-backend
+  namespace: sachs
+  labels:
+    app: gruppenname-backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gruppenname-backend
+    spec:
+      containers:
+        - name: gruppenname-backend
+          image: registry.datexis.com/ksachs/gruppenname-backend
+          ports:
+            - name: client-port
+              containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: gruppenname-backend-config
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: private-registry-auth
+      priorityClassName: important
+      nodeSelector:
+        cpu: opteron-6378
+  selector:
+    matchLabels:
+      app: gruppenname-backend

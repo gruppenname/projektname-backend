@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gruppenname-postgres
+  namespace: sachs
+  labels:
+    app: gruppenname-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gruppenname-postgres
+  template:
+    metadata:
+      labels:
+        app: gruppenname-postgres
+    spec:
+      containers:
+        - name: gruppenname-postgres
+          image: postgres
+          ports:
+            - name: client-port
+              containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: gruppenname-backend-config
+          volumeMounts:
+            - name: postgres-pv-claim
+              mountPath: /var/lib/postgresql/data
+              subPath: pgdata
+      restartPolicy: Always
+      priorityClassName: important
+      nodeSelector:
+        cpu: opteron-6378
+      volumes:
+        - name: postgres-pv-claim
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim

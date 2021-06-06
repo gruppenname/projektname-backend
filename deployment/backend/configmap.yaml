@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gruppenname-backend-config
+  namespace: sachs
+data:
+  DATABASE_URL: 'postgresql://user:mysecretpassword@10.96.43.47:5432/postgres?schema=public'
+  PORT: '5000'
+  DEBUG: 'route:*,server'
+  POSTGRES_PASSWORD: 'mysecretpassword'
+  POSTGRES_USER: 'user'
+
