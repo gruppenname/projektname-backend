@@ -21,7 +21,8 @@ export async function updateTodo(_todo: {
   id: number,
   title?: string,
   category?: string,
-  status: Column
+  content?: string,
+  column?: Column
 }) {
   let updatedTodo:any = {
     where: {
@@ -37,8 +38,11 @@ export async function updateTodo(_todo: {
   if(_todo.category)
     updatedTodo.data.category = _todo.category
 
-  if(_todo.status)
-    updatedTodo.data.status = _todo.status
+  if(_todo.content)
+    updatedTodo.data.content = _todo.content
+
+  if(_todo.column)
+    updatedTodo.data.column = _todo.column
 
   return todo.update(updatedTodo)
 }

@@ -55,19 +55,21 @@ router.get('/:key', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-  const {id, title, category, status} = req.body;
+  const {title, category, column, content} = req.body;
 
   try {
     const updatedTodo = await todos.updateTodo({
-      id,
+      id: parseInt(req.params.id),
       title,
       category,
-      status
+      column,
+      content
     });
-    log('Edited Todo - title: "' + title + '", id: "' + updatedTodo.id + '"');
+    log('Edited Todo - title: "' + updatedTodo.title + '", id: "' + updatedTodo.id + '"');
 
     res.json(updatedTodo)
   } catch(e) {
+    log(e);
     res.status(400).json({error: e})
   }
 })
