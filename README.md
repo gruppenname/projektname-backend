@@ -1,6 +1,12 @@
 <h1 align="center"> projektname-backend </h1>
 
-Das Backend für Projektname, eine einfache ToDo-Anwendung, in der ToDo's nach einem Key gespeichert werden.
+Das Backend für Projektname, eine einfache ToDo-Anwendung, in der ToDos nach einem Key gespeichert werden.
+
+### Repository klonen
+
+```bash
+git clone https://github.com/gruppenname/projektname-backend.git
+```
 
 ## Verwenden
 Beispiele für die möglichen Routen sind in der `test.http` Datei angelegt.
