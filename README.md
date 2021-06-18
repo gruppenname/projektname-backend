@@ -8,10 +8,15 @@ Das Backend für Projektname, eine einfache ToDo-Anwendung, in der ToDos nach ei
 git clone https://github.com/gruppenname/projektname-backend.git
 ```
 
-## Verwenden
-Beispiele für die möglichen Routen sind in der `test.http` Datei angelegt.
+## Ausführung der gesamten Applikation mit Docker-Compose
+1. clone das Frontend (https://github.com/gruppenname/projektname-frontend.git) in das gleiche Verzeichnis wie dieses Backend
+2. Ändere im Frontend Dockerfile die Auskommentierung der ENV damit die lokale Backend-Url genutzt werden kann
+3. Stelle sicher dass dein Docker Daemon läuft
+4. Navigiere in deiner Konsole zum Backend-Ordner und führe `docker-compose build` und `docker-compose up` aus.
 
 ## Entwickeln
+Beispiele für die möglichen Routen sind in der `test.http` Datei angelegt.
+
 Für die lokale Entwicklung wird eine Postgres-Instanz benötigt. Dafür kann der Befehl `docker run --rm --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword --network=host -d postgres` verwendet werden.
 
 Die Anwendung erwartet Umgebungsvariablen, .z.B. um die Verbindung zur Datenbank aufzubauen. Dies kann durch das direkte Setzen der Umgebungsvariablen oder durch das Erzeugen einer `.env` Datei gemacht werden. Die erwarteten Variablen befinden sich in der `.env.example` Datei.
@@ -28,7 +33,7 @@ Das Backend kann mit dem Befehl `npm start` gestartet werden.
 
 ## Tests
 Die Tests werden über Jest ausgeführt und können über den Befehl `npm test` gestartet werden.
-
+ 
 
 ## Deployment
 Das Deployment findet in diesem Projekt über Kubernetes statt. Notwendig hierzu ist ein Clusterzugang für den ["Data Science Cluster"](https://labor.beuth-hochschule.de/ris/data-science-cluster/) der Beuth Hochschule für Technik Berlin und die Installation von kubectl.
