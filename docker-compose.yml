@@ -17,3 +17,12 @@ services:
     image: "postgres:latest"
     environment: 
       - POSTGRES_PASSWORD=mysecretpassword
+
+  frontend:
+    build:
+      context: ./../projektname-frontend
+      dockerfile: ./../projektname-frontend/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "8080:8080"
